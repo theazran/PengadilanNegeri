@@ -32,7 +32,7 @@ app.post('/api/webhook', async (req, res) => {
           kirim(from, '[CONTENT TILANG]');
           break;
         case "layanan":
-          kirim(from, `Bapak/Ibu ${pushname}, Pengadilan Negeri Bulukumba telah melaksanakan Sistem Pelayanan Terpadu Satu Pintu (PTSP). Seluruh pelayanan publik dilakukan pada ruang Pelayanan Terpadu Satu Pintu (PTSP) Pengadilan Negeri Bulukumba
+          kirim(from, `Bapak/Ibu ${pushname}, Pengadilan Negeri Bulukumba telah melaksanakan Sistem Pelayanan Terpadu Satu Pintu (PTSP). Seluruh pelayanan publik dilakukan pada ruang Pelayanan Terpadu Satu Pintu (PTSP) Pengadilan Negeri Bulukumba.
 
 Terdapat 6 meja pelayanan yang dibuka, yaitu:
 1. PERDATA\nMelayani segala pelayanan publik yang menjadi tupoksi Kepaniteraan Perdata. Pelayanan publik tersebut antara lain : pendaftaran perkara perdata, permohonan, gugatan.  
