@@ -81,19 +81,8 @@ async function listButton(from, content) {
                   "title": "Pengaduan",
                   "description": "Informasi mengenai prosedur pengaduan di Pengadilan"
                 },
-
                 {
-                  "id": "7",
-                  "title": "Ambil Antrian",
-                  "description": ""
-                },
-                {
-                  "id": "8",
-                  "title": "Cek Antrian",
-                  "description": "Melihat detail antrian"
-                },
-                {
-                  "id": "9",
+                  "id": "10",
                   "title": "Lainnya",
                   "description": ""
                 }
