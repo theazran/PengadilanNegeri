@@ -5,7 +5,7 @@ var TOKEN = process.env.TOKEN
 async function kirim(from, text) {
   var options = {
     'method': 'POST',
-    'url': 'https://graph.facebook.com/v15.0/107927808943061/messages',
+    'url': 'https://graph.facebook.com/v18.0/107927808943061/messages',
     'headers': {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + TOKEN
@@ -30,7 +30,7 @@ async function kirim(from, text) {
 async function listButton(from, content) {
   var options = {
     'method': 'POST',
-    'url': 'https://graph.facebook.com/v15.0/107927808943061/messages',
+    'url': 'https://graph.facebook.com/v18.0/107927808943061/messages',
     'headers': {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + TOKEN
@@ -49,7 +49,7 @@ async function listButton(from, content) {
           "button": "Menu",
           "sections": [
             {
-              "title": "PENGADILAN NEGERI",
+              "title": "PN BULUKUMBA",
               "rows": [
                 {
                   "id": "1",
@@ -103,7 +103,7 @@ async function listButton(from, content) {
 async function antrian(from, name) {
   var options = {
     'method': 'POST',
-    'url': 'https://graph.facebook.com/v15.0/107927808943061/messages',
+    'url': 'https://graph.facebook.com/v18.0/107927808943061/messages',
     'headers': {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + TOKEN
@@ -174,7 +174,7 @@ async function sendButton(from, name) {
   var request = require('request');
   var options = {
     'method': 'POST',
-    'url': 'https://graph.facebook.com/v15.0/107927808943061/messages',
+    'url': 'https://graph.facebook.com/v18.0/107927808943061/messages',
     'headers': {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + TOKEN
@@ -214,7 +214,7 @@ async function maps(from) {
   var request = require('request');
   var options = {
     'method': 'POST',
-    'url': 'https://graph.facebook.com/v15.0/107927808943061/messages',
+    'url': 'https://graph.facebook.com/v18.0/107927808943061/messages',
     'headers': {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + TOKEN
