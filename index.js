@@ -26,7 +26,23 @@ app.post('/api/webhook', async (req, res) => {
           maps(from)
           break;
         case "jadwal sidang":
-          kirim(from, '[CONTENT JADWAL SIDANG]');
+          var request = require('request');
+          var options = {
+            'method': 'GET',
+            'url': 'http://36.88.136.146:8080/andalan/kirimpesan/jadwalsidang',
+            'headers': {
+              'Cookie': 'ci_session=cn4vnq825if1gimk61lqat2g83rdh380'
+            }
+          };
+          request(options, function (error, response) {
+            if (error) throw new Error(error);
+            var responseBody = response.body;
+            responseBody = responseBody.replace(/<\/?pre>/g, '');
+            responseBody = responseBody.replace(/ANDALAN/g, 'Pengadilan Negeri Bulukumba');
+            console.log(responseBody);
+            kirim(from, responseBody);
+          });
+          break;
           break;
         case "tilang":
           kirim(from, '[CONTENT TILANG]');
