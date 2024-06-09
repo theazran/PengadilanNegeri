@@ -53,17 +53,18 @@ app.post('/api/webhook', async (req, res) => {
 Terdapat 6 meja pelayanan yang dibuka, yaitu:
 1. PERDATA\nMelayani segala pelayanan publik yang menjadi tupoksi Kepaniteraan Perdata. Pelayanan publik tersebut antara lain : pendaftaran perkara perdata, permohonan, gugatan.  
 Untuk mengetahui lebih rinci pada pelayanan perdata klik link  e-Brosur dibawah ini
-https://drive.google.com/file/d/1XxR8vXMcZd0Qx4HysKHLv3YrprfFh-AN/view
+https://drive.google.com/drive/folders/1YTm5tCP5IWhNekyTNdEoK2ei9hC2sTZZ
         
 2. PIDANA\nMelayani segala pelayanan publik yang menjadi tupoksi Kepaniteraan Pidana. Pelayanan publik tersebut antara lain : pendaftaran perkara pidana biasa, praperadilan, dsb.
 Untuk mengetahui lebih rinci pada pelayanan pidana klik link  e-Brosur dibawah ini
-https://drive.google.com/file/d/1et0qy5E_F50P5LX7pe9ws1g791RQJBAN/view
+https://drive.google.com/drive/folders/1Hp-OnDp1IwWLC8P31OooCM0Yd3WFJU5I
         
 3. HUKUM\nMeja Hukum melayani segala pelayanan publik yang menjadi tupoksi Kepaniteraan Hukum. Pelayanan publik tersebut antara lain : pembuatan surat keterangan, pendaftaran badan hukum, pendaftaran surat kuasa, dan Pengaduan terhadap aparat peradilan, termasuk bantuan dalam penggunaan aplikasi SIWAS oleh masyarakat.
 Untuk mengetahui lebih rinci pada pelayanan hukum klik link  e-Brosur dibawah ini
-https://drive.google.com/file/d/1CHhYD3oiat67ll4Esf6nCQDGYdMDZVML/view
+https://drive.google.com/drive/folders/1xJAJCVmPovBqLHI5iL2ojXXpA2Rb3Ko8
                 
 4. UMUM\nmelayani segala pelayanan publik yang menjadi tupoksi sub bagian umum dan keuangan. Pelayanan publik tersebut antara lain : pelayanan surat masuk dan surat keluar.
+https://drive.google.com/drive/folders/1udyE9IT0BR_zLRJ1eD0wKuuZNeqyLL8S
 
 5. e-cOURT\nmelayani segala pelayanan konsultasi yang berkaitan dengan Layanan e-Court dan e-Litigasi 
 Untuk mengakses Layanan e-cOURT klik link dibawah ini
@@ -82,10 +83,7 @@ Tidak mampu sebagaimana dimaksud di atas dibuktikan dengan melampirkan:
 
 2. Surat Keterangan Tunjangan Sosial lainnya seperti :Kartu Keluarga Miskin (KKM), kartu Jaminan Kesehatan Masyarakat (Jamkesmas), Kartu Beras Miskin (raskin), Kartu Program Keluarga Harapan (PKH), Kartu Bantuan langsung Tunai (BLT), Kartu Perlindungan Sosial (KPS)atau dokumen lainnya yang berkaitan dengan daftar penduduk miskin dalam basis data terpadu pemerintah atau yang dikeluarkan oleh instansi lain yang berwenang memberikan keterangan tidak mampu, atau.
 
-3. Surat pernyataan tidak mampu membayar jasa advokat yang dibuat dan ditandatangani oleh Pemohon layanan Posbakum Pengadilan dan disetujui oleh Petugas Posbakum Pengadilan, apabila Pemohon layanan Posbakum Pengadilan tidak memiliki dokumen sebagaimana disebut dalam huruf a atau b.
-
-Selengkapnya dapat dilihat pada link berikut.
-https://s.id/POSBAKUM`);
+3. Surat pernyataan tidak mampu membayar jasa advokat yang dibuat dan ditandatangani oleh Pemohon layanan Posbakum Pengadilan dan disetujui oleh Petugas Posbakum Pengadilan, apabila Pemohon layanan Posbakum Pengadilan tidak memiliki dokumen sebagaimana disebut dalam huruf a atau b.`);
           break;
         case "pengaduan":
           kirim(from, `Bapak/Ibu ${pushname}, Tata Cara Pengaduan diatur dalam Peraturan Mahkamah Agung RI Nomor 9 Tahun 2016 Tentang PEDOMAN PENANGANAN PENGADUAN (WHISTLEBLOWING SYSTEM) DI MAHKAMAH AGUNG DAN BADAN PERADILAN YANG BERADA DIBAWAHNYA.
