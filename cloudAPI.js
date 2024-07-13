@@ -81,6 +81,11 @@ async function listButton(from, content) {
                   "title": "Pengaduan",
                   "description": "Informasi mengenai prosedur pengaduan di Pengadilan"
                 },
+                  {
+                    "id": "19",
+                    "title": "Kritik & Saran",
+                    "description": ""
+                  },
                 {
                   "id": "10",
                   "title": "Lainnya",
