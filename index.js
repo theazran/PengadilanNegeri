@@ -109,15 +109,15 @@ https://s.id/Pengaduan-PNBulukumba
 `);
           break;
           
-         var request = require('request');
 
         case "kritik dan saran":
+          const request = require('request');
            kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran`)
-          var data = {
+          const data = {
             "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
           };
         
-          var options = {
+          const options = {
             method: 'POST',
             url: 'https://api.s.id/v1/links',
             headers: { 
@@ -135,12 +135,8 @@ https://s.id/Pengaduan-PNBulukumba
               return;
             }
             var responseData = JSON.parse(response.body);
-            console.log(response.body);
-            if (responseData.code === 200) {
-            kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
-            } else {
-              console.log(`Error: ${responseData.message}`);
-            }
+            // console.log(response.body);
+               kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
           });
         
           break;
