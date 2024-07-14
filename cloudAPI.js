@@ -83,8 +83,8 @@ async function listButton(from, content) {
                 },
                   {
                     "id": "19",
-                    "title": "Kritik dan Saran",
-                    "description": ""
+                    "title": "Kritik, Keluhan dan Saran",
+                    "description": "Layanan Penyampaian Kritik, keluhan dan saran"
                   },
                 {
                   "id": "10",
