@@ -110,11 +110,11 @@ https://s.id/Pengaduan-PNBulukumba
           break;
        case "kritik dan saran":
         var request = require('request');
-        const data = {
+        var data = {
           "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
         };
       
-        const options = {
+        var options = {
           method: 'POST',
           url: 'https://api.s.id/v1/links',
           headers: { 
