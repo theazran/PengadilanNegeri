@@ -108,38 +108,35 @@ Selengkapnya bisa dilihat pada link berikut.
 https://s.id/Pengaduan-PNBulukumba
 `);
           break;
-          
-
-        case "kritik dan saran":
-          const request = require('request');
-           kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran`)
-          const data = {
-            "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
-          };
-        
-          const options = {
-            method: 'POST',
-            url: 'https://api.s.id/v1/links',
-            headers: { 
-              'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
-              'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
-              'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          };
-        
-          request(options, function (error, response) {
-            if (error) {
-              console.log(error);
-              return;
-            }
-            var responseData = JSON.parse(response.body);
-            // console.log(response.body);
-               kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
-          });
-        
-          break;
+       case "kritik dan saran":
+        const request = require('request');
+        const data = {
+          "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
+        };
+      
+        const options = {
+          method: 'POST',
+          url: 'https://api.s.id/v1/links',
+          headers: { 
+            'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
+            'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
+            'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        };
+      
+        request(options, function (error, response) {
+          if (error) {
+            console.log(error);
+            return;
+          }
+          var responseData = JSON.parse(response.body);
+          // Notify the user with the actual link after receiving the response
+          kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
+        });
+      
+        break;
               
         case "ambil antrian":
           antrian(from, pushname)
