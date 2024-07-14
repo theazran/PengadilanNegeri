@@ -7,7 +7,6 @@ app.use(bodyParser.json());
 const port = 3000
 const { json } = require('body-parser')
 var base_url = `https://villages-phase-norfolk-corrected.trycloudflare.com/`
-var axios = require('axios');
 
 app.post('/api/webhook', async (req, res) => {
   let body_param = req.body
@@ -110,33 +109,41 @@ https://s.id/Pengaduan-PNBulukumba
 `);
           break;
           
-          case "kritik dan saran":
-            var data = JSON.stringify({
-              "https://kritsar.vercel.app/?nama=${pushname}&hp=${from} "
-            });
-          
-            var config = {
-              method: 'post',
-              url: 'https://api.s.id/v1/links',
-              headers: { 
-                'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
-                'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
-                'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
-                'Content-Type': 'application/json'
-              },
-              data : data
-            };
-          
-            axios(config)
-            .then(function (response) {
-              console.log(JSON.stringify(response.data));
-              kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n https://s.id/${response.data.data.short}`);
-            })
-            .catch(function (error) {
+         var request = require('request');
+
+        case "kritik dan saran":
+          var data = {
+            "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
+          };
+        
+          var options = {
+            method: 'POST',
+            url: 'https://api.s.id/v1/links',
+            headers: { 
+              'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
+              'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
+              'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          };
+        
+          request(options, function (error, response) {
+            if (error) {
               console.log(error);
-            });
+              return;
+            }
+            var responseData = JSON.parse(response.body);
+            console.log(response.body);
+            if (responseData.code === 200) {
+              kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
+            } else {
+              console.log(`Error: ${responseData.message}`);
+            }
+          });
+        
           break;
-      
+              
         case "ambil antrian":
           antrian(from, pushname)
           break;
