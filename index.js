@@ -110,7 +110,30 @@ https://s.id/Pengaduan-PNBulukumba
           break;
           
           case "kritik dan saran":
-          antrian(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://kritsar.vercel.app/?nama=${pushname}&hp=${from}`)
+            var data = JSON.stringify({
+              "https://kritsar.vercel.app/?nama=${pushname}&hp=${from} "
+            });
+          
+            var config = {
+              method: 'post',
+              url: 'https://api.s.id/v1/links',
+              headers: { 
+                'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
+                'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
+                'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
+                'Content-Type': 'application/json'
+              },
+              data : data
+            };
+          
+            axios(config)
+            .then(function (response) {
+              console.log(JSON.stringify(response.data));
+              kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n https://s.id/${response.data.data.short}`);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
           break;
       
         case "ambil antrian":
