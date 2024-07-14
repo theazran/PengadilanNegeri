@@ -112,6 +112,7 @@ https://s.id/Pengaduan-PNBulukumba
          var request = require('request');
 
         case "kritik dan saran":
+           kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran`)
           var data = {
             "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
           };
@@ -136,7 +137,7 @@ https://s.id/Pengaduan-PNBulukumba
             var responseData = JSON.parse(response.body);
             console.log(response.body);
             if (responseData.code === 200) {
-              kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
+            kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n ${responseData.data.short}`);
             } else {
               console.log(`Error: ${responseData.message}`);
             }
