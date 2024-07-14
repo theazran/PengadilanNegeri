@@ -109,7 +109,7 @@ https://s.id/Pengaduan-PNBulukumba
 `);
           break;
        case "kritik dan saran":
-        const request = require('request');
+        var request = require('request');
         const data = {
           "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
         };
