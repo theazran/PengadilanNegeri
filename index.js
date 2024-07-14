@@ -111,11 +111,7 @@ https://s.id/Pengaduan-PNBulukumba
         case "ambil antrian":
           antrian(from, pushname)
           break;
-
-        case "Kritik & Saran"
-          kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://a11a9329-d5ba-49f3-a1dd-f87e58a24c71-00-slztq770zyjo.riker.replit.dev/?nama=${pushname}&hp=${from}`)
-          break;
-
+          
         case "loket pidana":
           var request = require('request');
           var options = {
