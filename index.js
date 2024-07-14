@@ -108,6 +108,11 @@ Selengkapnya bisa dilihat pada link berikut.
 https://s.id/Pengaduan-PNBulukumba
 `);
           break;
+          
+          case "kritik dan saran":
+          antrian(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://kritsar.vercel.app/?nama=${pushname}&hp=${from}`)
+          break;
+      
         case "ambil antrian":
           antrian(from, pushname)
           break;
