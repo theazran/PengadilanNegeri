@@ -23,7 +23,12 @@ app.post('/api/webhook', async (req, res) => {
           listButton(from, `Bapak/Ibu ${pushname} yang Kami hormati, Silahkan klik tombol berikut untuk melihat layanan!`);
           break;
         case "profile":
-          maps(from)
+          //maps(from)
+          kirim(from, `PENGADILAN NEGERI BULUKUMBA
+Alamat: Jl. Kenari No. 5, Kabupaten Bulukumba, Provinsi Sulawesi Selatan
+Telp. / Fax: 0413-81022 / 0413-81050
+Website: https://pn-Bulukumba.go.id
+e-Mail: pn.bulukumba@gmail.com`);
           break;
         case "jadwal sidang":
           var request = require('request');
