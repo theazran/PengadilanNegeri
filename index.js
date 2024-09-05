@@ -34,7 +34,7 @@ e-Mail: pn.bulukumba@gmail.com`);
           var request = require('request');
           var options = {
             'method': 'GET',
-            'url': 'http://36.88.136.146:8080/andalan/kirimpesan/jadwalsidang',
+            'url': 'http://36.88.136.147:8080/andalan/kirimpesan/jadwalsidang',
             'headers': {
               'Cookie': 'ci_session=cn4vnq825if1gimk61lqat2g83rdh380'
             }
