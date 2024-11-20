@@ -138,7 +138,7 @@ https://s.id/Pengaduan-PNBulukumba
           }
           var responseData = JSON.parse(response.body);
           // Notify the user with the actual link after receiving the response
-          kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://s.id/${responseData.data.short}`);
+          kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://kritsar.vercel.app/?nama=${pushname}&hp=${from}`);
         });
       
         break;
