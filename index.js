@@ -115,7 +115,7 @@ https://s.id/Pengaduan-PNBulukumba
           break;
        case "kritik dan saran":
         var request = require('request');
-        var longUrl = 'https://kritsar.vercel.app/?nama=${encodeURIComponent(pushname)}&hp=${encodeURIComponent(from)}';
+        var longUrl = `https://kritsar.vercel.app/?nama=${encodeURIComponent(pushname)}&hp=${encodeURIComponent(from)}`;
         
         var shortUrlApi = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
         request(shortUrlApi, function (error, response, body) {
