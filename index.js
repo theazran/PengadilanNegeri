@@ -115,23 +115,23 @@ https://s.id/Pengaduan-PNBulukumba
           break;
        case "kritik dan saran":
         var request = require('request');
-        var longUrl = `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`;
-
-        var shortUrlApi = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
-  
+        var longUrl = 'https://kritsar.vercel.app/?nama=${encodeURIComponent(pushname)}&hp=${encodeURIComponent(from)}';
+        
+        var shortUrlApi = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
         request(shortUrlApi, function (error, response, body) {
-          if (error) {
-            console.log(error);
-            return;
-          }
-
-          if (response.statusCode === 200) {
-            kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n${body}`);
-          } else {
-            console.log(`Error: ${response.statusCode}`);
-            kirim(from, 'Maaf, terjadi kesalahan saat mempersingkat URL.');
-          }
+            if (error) {
+                console.log('Request error:', error);
+                return;
+            }
+        
+            if (response.statusCode === 200) {
+                console.log(`URL pendek: ${body}`);
+                kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n${body}`);
+            } else {
+                console.log(`Error ${response.statusCode}: ${response.body}`);
+            }
         });
+
 
       
         break;
