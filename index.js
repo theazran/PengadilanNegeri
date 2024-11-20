@@ -115,31 +115,24 @@ https://s.id/Pengaduan-PNBulukumba
           break;
        case "kritik dan saran":
         var request = require('request');
-        var data = {
-          "long_url": `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`
-        };
-      
-        var options = {
-          method: 'POST',
-          url: 'https://api.s.id/v1/links',
-          headers: { 
-            'X-Auth-Id': '667659ebe4aeddb38f6650ac', 
-            'X-Auth-Key': 'clxpng3jh000201nabjtd9uzy.l9KOoPqw6DPABX_gT2TdRm5qjn4Y6_PH', 
-            'User-Agent': 'Apidog/1.0.0 (https://apidog.com)', 
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        };
-      
-        request(options, function (error, response) {
+        var longUrl = `https://kritsar.vercel.app/?nama=${pushname}&hp=${from}`;
+
+        var shortUrlApi = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(longUrl)}`;
+  
+        request(shortUrlApi, function (error, response, body) {
           if (error) {
             console.log(error);
             return;
           }
-          var responseData = JSON.parse(response.body);
-          // Notify the user with the actual link after receiving the response
-          kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\nhttps://kritsar.vercel.app/?nama=${pushname}&hp=${from}`);
+
+          if (response.statusCode === 200) {
+            kirim(from, `Silahkan klik link berikut untuk memberikan Kritik dan Saran\n${body}`);
+          } else {
+            console.log(`Error: ${response.statusCode}`);
+            kirim(from, 'Maaf, terjadi kesalahan saat mempersingkat URL.');
+          }
         });
+
       
         break;
               
