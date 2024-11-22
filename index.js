@@ -34,7 +34,7 @@ e-Mail: pn.bulukumba@gmail.com`);
           var request = require('request');
           var options = {
             'method': 'GET',
-            'url': 'http://36.88.136.147:8080/andalan/kirimpesan/jadwalsidang',
+            'url': 'http://36.88.136.148:8080/andalan/kirimpesan/jadwalsidang',
             'headers': {
               'Cookie': 'ci_session=cn4vnq825if1gimk61lqat2g83rdh380'
             }
@@ -48,10 +48,55 @@ e-Mail: pn.bulukumba@gmail.com`);
             kirim(from, responseBody);
           });
           break;
-          break;
-        case "tilang":
-          kirim(from, '[CONTENT TILANG]');
-          break;
+          case "#tilang":
+            kirim(from, `Silahkan kirim perintah #tilang <No. Register Tilang>\n\nContoh: #tilang G01234567`)
+            break;
+          
+            case "#tilang":
+            if (args.length < 1) {
+                kirim(from, "Kode registrasi tilang harus diberikan. Contoh: #tilang G8934466");
+                break;
+            }
+
+            const kodeRegister = args[0];
+            const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
+
+            request(url, { json: true }, (error, response, body) => {
+                if (error) {
+                    console.error("Error API:", error.message);
+                    kirim(from, "Terjadi kesalahan saat memproses permintaan.");
+                    return;
+                }
+
+                if (body.error) {
+                    kirim(from, `Error: ${body.error}`);
+                    return;
+                }
+
+                const hasil = body.results && body.results[0]; 
+                if (!hasil) {
+                    kirim(from, "Data tidak ditemukan.");
+                    return;
+                }
+
+        const message = `
+Tilang Info:
+Nama: ${hasil.nama}
+Alamat: ${hasil.alamat}
+Jenis Kendaraan: ${hasil.jenis_kendaraan}
+No Ranmor: ${hasil.no_ranmor}
+Denda: Rp${hasil.denda}
+Pasal: ${hasil.pasal}
+Tanggal Sidang: ${hasil.tgl_sidang || 'Belum dijadwalkan'}
+
+Petugas Penindak:
+Nama: ${hasil.nama_petugas}
+NRP: ${hasil.nrp_petugas}
+        `;
+        kirim(from, message.trim());
+    });
+    break;
+
         case "layanan":
           kirim(from, `Bapak/Ibu ${pushname}, Pengadilan Negeri Bulukumba telah melaksanakan Sistem Pelayanan Terpadu Satu Pintu (PTSP). Seluruh pelayanan publik dilakukan pada ruang Pelayanan Terpadu Satu Pintu (PTSP) Pengadilan Negeri Bulukumba.
 
