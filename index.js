@@ -59,6 +59,8 @@ e-Mail: pn.bulukumba@gmail.com`);
             }
 
             const kodeRegister = args[0];
+            console.log("Command args:", args);
+            console.log("Kode register:", kodeRegister);
             const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
             var request = require('request');
             request(url, { json: true }, (error, response, body) => {
