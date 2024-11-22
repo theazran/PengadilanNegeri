@@ -60,7 +60,7 @@ e-Mail: pn.bulukumba@gmail.com`);
 
             const kodeRegister = args[0];
             const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
-
+            var request = require('request');
             request(url, { json: true }, (error, response, body) => {
                 if (error) {
                     console.error("Error API:", error.message);
