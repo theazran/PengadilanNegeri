@@ -68,10 +68,6 @@ NRP: ${hasil.nrp_petugas}
     } else {
         kirim(from, `Halo ${pushname}, perintah tidak dikenal. Silakan gunakan format yang benar, contoh: #tilang G8934466.`);
     }
-} catch (err) {
-    console.error("Error handler:", err.message);
-}
-}
       
       switch (chat.toLowerCase()) {
          case "info":
