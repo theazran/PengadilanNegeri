@@ -48,7 +48,7 @@ e-Mail: pn.bulukumba@gmail.com`);
             kirim(from, responseBody);
           });
           break;
-          case "#tilang":
+          case "tilang":
             kirim(from, `Silahkan kirim perintah #tilang <No. Register Tilang>\n\nContoh: #tilang G01234567`)
             break;
           
