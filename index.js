@@ -48,13 +48,17 @@ app.post('/api/webhook', async (req, res) => {
             }
 
             const message = `
-Tilang Info:
+Detail Tilang:
 Nama: ${hasil.nama}
 Alamat: ${hasil.alamat}
 Jenis Kendaraan: ${hasil.jenis_kendaraan}
 No Ranmor: ${hasil.no_ranmor}
 Denda: Rp${hasil.denda}
+Biaya Perkara: Rp${hasil.bp}
+Uang Titipan: Rp${hasil.uang_titipan}
 Pasal: ${hasil.pasal}
+Subsider: ${hasil.subsider}
+Satker: ${hasil.satker_penindak}
 Tanggal Sidang: ${hasil.tgl_sidang || 'Belum dijadwalkan'}
 
 Petugas Penindak:
