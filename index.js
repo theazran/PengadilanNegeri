@@ -65,12 +65,9 @@ NRP: ${hasil.nrp_petugas}
             `;
             kirim(from, message.trim());
         });
-    } else {
-        kirim(from, `Halo ${pushname}, perintah tidak dikenal. Silakan gunakan format yang benar, contoh: #tilang G8934466.`);
-    }
-      
+    } 
       switch (chat.toLowerCase()) {
-         case "info":
+        case "info":
           listButton(from, `Bapak/Ibu ${pushname} yang Kami hormati, Silahkan klik tombol berikut untuk melihat layanan!`);
           break;
         case "profile":
@@ -100,7 +97,7 @@ e-Mail: pn.bulukumba@gmail.com`);
           });
           break;
         case "tilang":
-          kirim(from, 'Silahkan kirim perintah berikut.\n#tilang <No. Register Tilang>\n\nContoh:\n#tilang G012345');
+          kirim(from, `Silahkan kirim perintah berikut.\n#tilang <No. Register Tilang>\n\nContoh:\n#tilang G012345`);
           break;
         case "layanan":
           kirim(from, `Bapak/Ibu ${pushname}, Pengadilan Negeri Bulukumba telah melaksanakan Sistem Pelayanan Terpadu Satu Pintu (PTSP). Seluruh pelayanan publik dilakukan pada ruang Pelayanan Terpadu Satu Pintu (PTSP) Pengadilan Negeri Bulukumba.
