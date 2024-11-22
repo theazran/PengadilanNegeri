@@ -48,57 +48,6 @@ e-Mail: pn.bulukumba@gmail.com`);
             kirim(from, responseBody);
           });
           break;
-          case "tilang":
-            kirim(from, `Silahkan kirim perintah #tilang <No. Register Tilang>\n\nContoh: #tilang G01234567`)
-            break;
-          
-            case "#tilang":
-            if (args.length < 1) {
-                kirim(from, "Kode registrasi tilang harus diberikan. Contoh: #tilang G8934466");
-                break;
-            }
-
-            const kodeRegister = args[0];
-            console.log("Command args:", args);
-            console.log("Kode register:", kodeRegister);
-            const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
-            var request = require('request');
-            request(url, { json: true }, (error, response, body) => {
-                if (error) {
-                    console.error("Error API:", error.message);
-                    kirim(from, "Terjadi kesalahan saat memproses permintaan.");
-                    return;
-                }
-
-                if (body.error) {
-                    kirim(from, `Error: ${body.error}`);
-                    return;
-                }
-
-                const hasil = body.results && body.results[0]; 
-                if (!hasil) {
-                    kirim(from, "Data tidak ditemukan.");
-                    return;
-                }
-
-        const message = `
-Tilang Info:
-Nama: ${hasil.nama}
-Alamat: ${hasil.alamat}
-Jenis Kendaraan: ${hasil.jenis_kendaraan}
-No Ranmor: ${hasil.no_ranmor}
-Denda: Rp${hasil.denda}
-Pasal: ${hasil.pasal}
-Tanggal Sidang: ${hasil.tgl_sidang || 'Belum dijadwalkan'}
-
-Petugas Penindak:
-Nama: ${hasil.nama_petugas}
-NRP: ${hasil.nrp_petugas}
-        `;
-        kirim(from, message.trim());
-    });
-    break;
-
         case "layanan":
           kirim(from, `Bapak/Ibu ${pushname}, Pengadilan Negeri Bulukumba telah melaksanakan Sistem Pelayanan Terpadu Satu Pintu (PTSP). Seluruh pelayanan publik dilakukan pada ruang Pelayanan Terpadu Satu Pintu (PTSP) Pengadilan Negeri Bulukumba.
 
@@ -385,9 +334,56 @@ Status: ${item.status === '1' ? 'Selesai' : 'Belum dipanggil'}
         case "lainnya":
           listButton(from, `Halo kak ${pushname}, admin *Pengadilan Negeri Bulukumba* segera menghubungi kamu!`);
           break;
+          case "#t":
+            if (args.length < 1 || !args[0].trim()) {
+                kirim(from, "Kode registrasi tilang harus diberikan. Contoh: #tilang G8934466");
+                break;
+            }
+        
+            const kodeRegister = args[0].trim();
+            const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
+            var request = require('request');
+        
+            request(url, { json: true }, (error, response, body) => {
+                if (error) {
+                    console.error("Error API:", error.message);
+                    kirim(from, "Terjadi kesalahan saat memproses permintaan.");
+                    return;
+                }
+        
+                if (body.error) {
+                    kirim(from, `Error: ${body.error}`);
+                    return;
+                }
+        
+                const hasil = body.results && body.results[0];
+                if (!hasil) {
+                    kirim(from, "Data tidak ditemukan.");
+                    return;
+                }
+        
+                const message = `
+        Tilang Info:
+        Nama: ${hasil.nama}
+        Alamat: ${hasil.alamat}
+        Jenis Kendaraan: ${hasil.jenis_kendaraan}
+        No Ranmor: ${hasil.no_ranmor}
+        Denda: Rp${hasil.denda}
+        Pasal: ${hasil.pasal}
+        Tanggal Sidang: ${hasil.tgl_sidang || 'Belum dijadwalkan'}
+        
+        Petugas Penindak:
+        Nama: ${hasil.nama_petugas}
+        NRP: ${hasil.nrp_petugas}
+                `;
+                kirim(from, message.trim());
+            });
+            break;
+        
         default:
-          listButton(from, `Bapak/Ibu ${pushname} yang Kami hormati, Silahkan klik tombol berikut untuk melihat layanan!`);
-          break;
+            listButton(from, `Bapak/Ibu ${pushname} yang Kami hormati, Silahkan klik tombol berikut untuk melihat layanan!`);
+            break;
+        
       }
     } catch (e) {
       console.log('Ups.. Ada yang error! silahkan ulangi kembali')
