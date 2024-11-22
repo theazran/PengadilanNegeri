@@ -18,38 +18,38 @@ app.post('/api/webhook', async (req, res) => {
   if (inbox == "34493") {
     console.log(JSON.stringify(pushname, null, 2))
     try {
-      
-      switch (chat.toLowerCase()) {
-         case "#tilang":
-          const args = chat.split(" ").slice(1); // Ambil argumen setelah prefix
-                if (args.length < 1 || !args[0].trim()) {
-                    kirim(from, "Kode registrasi tilang harus diberikan. Contoh: #tilang G8934466");
-                    break;
-                }
+      if (chat.includes("#tilang")) {
+        const args = chat.split(" ").slice(1); // Ambil argumen setelah '#tilang'
 
-                const kodeRegister = args[0].trim();
-                const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
-                var request = require('request');
+        if (args.length < 1 || !args[0].trim()) {
+            kirim(from, "Kode registrasi tilang harus diberikan. Contoh: #tilang G8934466");
+            return;
+        }
 
-                request(url, { json: true }, (error, response, body) => {
-                    if (error) {
-                        console.error("Error API:", error.message);
-                        kirim(from, "Terjadi kesalahan saat memproses permintaan.");
-                        return;
-                    }
+        const kodeRegister = args[0].trim();
+        const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
+        var request = require('request');
 
-                    if (body.error) {
-                        kirim(from, `Error: ${body.error}`);
-                        return;
-                    }
+        // Fetch API
+        request(url, { json: true }, (error, response, body) => {
+            if (error) {
+                console.error("Error API:", error.message);
+                kirim(from, "Terjadi kesalahan saat memproses permintaan.");
+                return;
+            }
 
-                    const hasil = body.results && body.results[0];
-                    if (!hasil) {
-                        kirim(from, "Data tidak ditemukan.");
-                        return;
-                    }
+            if (body.error) {
+                kirim(from, `Error: ${body.error}`);
+                return;
+            }
 
-                    const message = `
+            const hasil = body.results && body.results[0];
+            if (!hasil) {
+                kirim(from, "Data tidak ditemukan.");
+                return;
+            }
+
+            const message = `
 Tilang Info:
 Nama: ${hasil.nama}
 Alamat: ${hasil.alamat}
@@ -62,13 +62,19 @@ Tanggal Sidang: ${hasil.tgl_sidang || 'Belum dijadwalkan'}
 Petugas Penindak:
 Nama: ${hasil.nama_petugas}
 NRP: ${hasil.nrp_petugas}
-                    `;
-                    kirim(from, message.trim());
-                });
-                break;
-
-
-        case "info":
+            `;
+            kirim(from, message.trim());
+        });
+    } else {
+        kirim(from, `Halo ${pushname}, perintah tidak dikenal. Silakan gunakan format yang benar, contoh: #tilang G8934466.`);
+    }
+} catch (err) {
+    console.error("Error handler:", err.message);
+}
+}
+      
+      switch (chat.toLowerCase()) {
+         case "info":
           listButton(from, `Bapak/Ibu ${pushname} yang Kami hormati, Silahkan klik tombol berikut untuk melihat layanan!`);
           break;
         case "profile":
