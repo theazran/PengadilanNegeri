@@ -142,7 +142,7 @@ Tidak mampu sebagaimana dimaksud di atas dibuktikan dengan melampirkan:
 3. Surat pernyataan tidak mampu membayar jasa advokat yang dibuat dan ditandatangani oleh Pemohon layanan Posbakum Pengadilan dan disetujui oleh Petugas Posbakum Pengadilan, apabila Pemohon layanan Posbakum Pengadilan tidak memiliki dokumen sebagaimana disebut dalam huruf a atau b.`);
 break;
         case "hubungi kami":
-          kirim(from, `Bapak/Ibu ${pushname}, Silakan isi form berikut terlebih dahulu\nhttps://ptsponline.pn-bulukumba.go.id/callcenter`
+          kirim(from, `Bapak/Ibu ${pushname}, Silakan isi form berikut terlebih dahulu\nhttps://ptsponline.pn-bulukumba.go.id/callcenter`);
           break;
         case "pengaduan":
           kirim(from, `Bapak/Ibu ${pushname}, Tata Cara Pengaduan diatur dalam Peraturan Mahkamah Agung RI Nomor 9 Tahun 2016 Tentang PEDOMAN PENANGANAN PENGADUAN (WHISTLEBLOWING SYSTEM) DI MAHKAMAH AGUNG DAN BADAN PERADILAN YANG BERADA DIBAWAHNYA.
