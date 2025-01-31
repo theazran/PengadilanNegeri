@@ -88,6 +88,11 @@ async function listButton(from, content) {
                   },
                 {
                   "id": "10",
+                  "title": "Hubungi Kami",
+                  "description": ""
+                },
+                {
+                  "id": "11",
                   "title": "Lainnya",
                   "description": ""
                 }
