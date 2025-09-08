@@ -84,6 +84,7 @@ e-Mail: pn.bulukumba@gmail.com`);
           break;
         case "jadwal sidang":
           var request = require('request');
+          kirim(from, 'Bapak/ibu silakan melihat detail jadwal sidang pada link berikut\nhttps://sipp.pn-bulukumba.go.id/list_jadwal_sidang'
           var options = {
             'method': 'GET',
             'url': 'http://36.88.136.147:8080/andalan/kirimpesan/jadwalsidang',
@@ -91,14 +92,15 @@ e-Mail: pn.bulukumba@gmail.com`);
               'Cookie': 'ci_session=cn4vnq825if1gimk61lqat2g83rdh380'
             }
           };
-          request(options, function (error, response) {
-            if (error) throw new Error(error);
-            var responseBody = response.body;
-            responseBody = responseBody.replace(/<\/?pre>/g, '');
-            responseBody = responseBody.replace(/ANDALAN/g, 'Pengadilan Negeri Bulukumba');
-            console.log(responseBody);
-            kirim(from, responseBody);
-          });
+          // request(options, function (error, response) {
+          //   if (error) throw new Error(error);
+          //   var responseBody = response.body;
+          //   responseBody = responseBody.replace(/<\/?pre>/g, '');
+          //   responseBody = responseBody.replace(/ANDALAN/g, 'Pengadilan Negeri Bulukumba');
+          //   console.log(responseBody);
+          //   kirim(from, responseBody);
+          // });
+          
           break;
         case "tilang":
           kirim(from, `Silahkan kirim perintah berikut.\n#tilang <No. Register Tilang>\n\nContoh:\n#tilang G012345`);
