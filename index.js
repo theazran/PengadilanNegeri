@@ -85,7 +85,7 @@ e-Mail: pn.bulukumba@gmail.com`);
           break;
         case "jadwal sidang":
           var request = require('request');
-          kirim(from, 'Bapak/ibu silakan melihat detail jadwal sidang pada link berikut\nhttps://sipp.pn-bulukumba.go.id/list_jadwal_sidang'
+          kirim(from, `Bapak/ibu silakan melihat detail jadwal sidang pada link berikut\nhttps://sipp.pn-bulukumba.go.id/list_jadwal_sidang`)
           var options = {
             'method': 'GET',
             'url': 'http://36.88.136.147:8080/andalan/kirimpesan/jadwalsidang',
