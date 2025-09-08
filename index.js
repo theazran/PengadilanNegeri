@@ -26,7 +26,8 @@ app.post('/api/webhook', async (req, res) => {
         }
 
         const kodeRegister = args[0].trim();
-        const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
+        // const url = `https://etilang.vercel.app/api/cektilang?no_tilang=${kodeRegister}`;
+        const url = `https://salama.pnblk.my.id/api/search?search=${kodeRegister}`;
         var request = require('request');
 
         request(url, { json: true }, (error, response, body) => {
